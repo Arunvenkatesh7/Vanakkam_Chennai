@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+
+body{
+    font-family: "Poppins";
+}
+
+input{
+    display: none;
+}
+
+.container{
+    width:100%;
+    text-align: center;
+}
+
+.header{
+    text-align: center;
+    position: relative;
+    margin:17px;
+}
+
+.header::before{
+    content:"";
+    height:3px;
+    width:100px;
+    background-color: red;
+    position: absolute;
+    bottom:-10px;
+    left:50%;
+    transform: translateX(-50%);
+    animation:animate_header 4s linear infinite;
+    
+
+}
+
+@keyframes animate_header{
+    0%{
+        width:100px;
+    }
+    50%{
+        width:200px;
+    }
+    100%{
+        width:100px;
+    }
+}
+
+
+.content_change{
+    background-color: lightskyblue;
+    width:50%;
+    margin:0 auto 20px auto;
+    gap:0;
+    height: 60px;
+    display:flex;
+    align-items: center;
+    padding: 20px;
+    justify-content: space-around;
+    border-radius: 30px;
+    box-shadow: 3px 3px 5px black;
+    font-size: 18px;
+}
+
+.content_change div{
+    background-color: rgb(58, 109, 219);
+    height: 60px;
+    align-items: center;
+    display: flex;
+    width:150px;
+    justify-content: center;
+    border-radius: 30px;
+    transform:translateX(-40px);
+    font-size: 19px;
+    font-weight: initial;
+
+}
+
+
+.content_change label{
+    display:inline-block;
+    /* background-color: red; */
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    /* margin:0 20px; */
+    /* line-height: 60px; */
+    /* overflow:hidden; */
+    cursor: pointer;
+    transition: .4s;
+
+
+
+}
+
+/* .content_change label::before{
+   
+    content:"";
+    width: 100px;
+    height: 3px;
+    position: absolute;
+    background-color: red;
+    top:10px;
+
+} */
+
+
+.content_change label:hover{
+    color:blue;
+    font-size: 19px;
+
+}
+
+/* 
+photo gallerryy coming */
+
+
+.gallery_container{
+    width:90%;  
+    margin:auto;
+    /* background-color: skyblue; */
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 40px;
+    padding: 60px;
+
+}
+
+
+
+
+
+/* 
+.content_change div{
+    background-color: blue;
+    height: 60px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left:0%;
+    border-radius: 30px;
+    padding: 20px;
+    margin-left: 20px;
+
+    
+}*/
+
+
+
+@media screen and (max-width: 767px) {
+    .content_change {
+        width:90%;
+        gap:10px;
+        
+        
+    }
+} 
+
+
+.gal_image{
+    height:400px;
+    position: relative;
+    transition: .4s;
+
+  
+}
+
+.gal_image img{
+    height: 100%;
+    width:300px;
+    position: relative;
+    transition: .4s;
+    
+    
+}
+.gal_image:hover{
+    transform: scale(1.1);
+    border-radius: 30px;
+}
+
+.gal_image img:hover{
+    border-radius: 30px;   
+}
+
+.gal_image::before{
+    content: attr(alt);
+    background-color: rgb(27,27,27,0.6);
+    position: absolute;
+    /* top:50%;
+    left: 50%; */
+    /* transform: translate(-50%,-50%); */
+    bottom:0;   
+    color:white;
+    font-weight:bold;
+    font-size: 2.5vh;
+    z-index: 1;
+    width: 260px;
+    padding: 20px;
+    transition: .4s; 
+}
+
+
+
+.gal_image:hover::before{
+    height: 100%;
+  
+    height:200px;
+    border-radius: 30px 30px 30px 30px;
+
+
+
+    
+    
+}
+
+
+
+
+/* .image{
+    height:400px;
+    width:300px;
+} */
+
+
+/* ---------------CHECK FILTERS--------- */
+
+
+#check1:checked ~ .container .content_change #checker1,
+#check2:checked ~ .container .content_change #checker2,
+#check3:checked ~ .container .content_change #checker3,
+#check4:checked ~ .container .content_change #checker4,
+#check5:checked ~ .container .content_change #checker5{
+    color:blue;
+}
+
+
+
+
+
+
+
+
+#check1:checked ~ .container .gallery_container .gal_image{
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+}
+
+#check2:checked ~.container .gallery_container .beach{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+}
+
+#check2:checked ~.container .gallery_container .stadium,
+#check2:checked ~.container .gallery_container .parliament,
+#check2:checked ~.container .gallery_container .parks{
+    transform: scale(0);
+    opacity: 0;
+    position: absolute;
+}
+
+
+#check3:checked ~.container .gallery_container .stadium{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+}
+
+#check3:checked ~.container .gallery_container .beach,
+#check3:checked ~.container .gallery_container .parliament,
+#check3:checked ~.container .gallery_container .parks{
+    transform: scale(0);
+    opacity: 0;
+    position: absolute;
+}
+
+
+
+#check4:checked ~.container .gallery_container .parliament{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+}
+
+#check4:checked ~.container .gallery_container .beach,
+#check4:checked ~.container .gallery_container .stadium,
+#check4:checked ~.container .gallery_container .parks{
+    transform: scale(0);
+    opacity: 0;
+    position: absolute;
+}
+
+
+
+
+#check5:checked ~.container .gallery_container .parks{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+}
+
+#check5:checked ~.container .gallery_container .beach,
+#check5:checked ~.container .gallery_container .parliament,
+#check5:checked ~.container .gallery_container .stadium{
+    transform: scale(0);
+    opacity: 0;
+    position: absolute;
+}
